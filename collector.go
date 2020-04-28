@@ -9,36 +9,36 @@ import (
 var (
 	// Create a gauge to show whether the server is queryable or not..
 	statusDesc = prometheus.NewDesc(
-		"active",
+		prometheus.BuildFQName("openttd", "game", "active"),
 		"Server state.",
 		[]string{}, nil,
 	)
 	// Create a gauge to track user counts. Spectators and overall Clients are
 	// differentiated via a "type" label.
 	clientsDesc = prometheus.NewDesc(
-		"clients",
+		prometheus.BuildFQName("openttd", "game", "clients"),
 		"Currently active clients.",
 		[]string{"type"}, nil,
 	)
 	clientsLimitsDesc = prometheus.NewDesc(
-		"client_limits",
+		prometheus.BuildFQName("openttd", "game", "client_limits"),
 		"Client limits.",
 		[]string{"type"}, nil,
 	)
 
 	// Create a gauge to track company count.
 	companiesDesc = prometheus.NewDesc(
-		"companies",
+		prometheus.BuildFQName("openttd", "game", "companies"),
 		"Currently active companies.",
 		[]string{}, nil,
 	)
 	companiesLimitsDesc = prometheus.NewDesc(
-		"company_limit",
+		prometheus.BuildFQName("openttd", "game", "company_limit"),
 		"Company limit.",
 		[]string{}, nil,
 	)
 	queryTimeDesc = prometheus.NewDesc(
-		"query_time",
+		prometheus.BuildFQName("openttd", "meta", "query_time"),
 		"Duration of the last query.",
 		[]string{}, nil,
 	)
