@@ -61,51 +61,51 @@ func (cc OpenttdCollector) Collect(ch chan<- prometheus.Metric) {
 	var state int
 	if result.Status {
 		state = 1
-
-		ch <- prometheus.MustNewConstMetric(
-			statusDesc,
-			prometheus.GaugeValue,
-			float64(state),
-		)
-
-		ch <- prometheus.MustNewConstMetric(
-			clientsDesc,
-			prometheus.GaugeValue,
-			float64(result.NumClients),
-			"clients",
-		)
-		ch <- prometheus.MustNewConstMetric(
-			clientsDesc,
-			prometheus.GaugeValue,
-			float64(result.NumSpectators),
-			"spectators",
-		)
-		ch <- prometheus.MustNewConstMetric(
-			clientsLimitsDesc,
-			prometheus.GaugeValue,
-			float64(result.MaxClients),
-			"clients",
-		)
-		ch <- prometheus.MustNewConstMetric(
-			clientsLimitsDesc,
-			prometheus.GaugeValue,
-			float64(result.MaxSpectators),
-			"spectators",
-		)
-
-		ch <- prometheus.MustNewConstMetric(
-			companiesDesc,
-			prometheus.GaugeValue,
-			float64(result.NumCompanies),
-		)
-		ch <- prometheus.MustNewConstMetric(
-			companiesLimitsDesc,
-			prometheus.GaugeValue,
-			float64(result.MaxCompanies),
-		)
 	} else {
 		state = 0
 	}
+
+	ch <- prometheus.MustNewConstMetric(
+		statusDesc,
+		prometheus.GaugeValue,
+		float64(state),
+	)
+
+	ch <- prometheus.MustNewConstMetric(
+		clientsDesc,
+		prometheus.GaugeValue,
+		float64(result.NumClients),
+		"clients",
+	)
+	ch <- prometheus.MustNewConstMetric(
+		clientsDesc,
+		prometheus.GaugeValue,
+		float64(result.NumSpectators),
+		"spectators",
+	)
+	ch <- prometheus.MustNewConstMetric(
+		clientsLimitsDesc,
+		prometheus.GaugeValue,
+		float64(result.MaxClients),
+		"clients",
+	)
+	ch <- prometheus.MustNewConstMetric(
+		clientsLimitsDesc,
+		prometheus.GaugeValue,
+		float64(result.MaxSpectators),
+		"spectators",
+	)
+
+	ch <- prometheus.MustNewConstMetric(
+		companiesDesc,
+		prometheus.GaugeValue,
+		float64(result.NumCompanies),
+	)
+	ch <- prometheus.MustNewConstMetric(
+		companiesLimitsDesc,
+		prometheus.GaugeValue,
+		float64(result.MaxCompanies),
+	)
 
 	ch <- prometheus.MustNewConstMetric(
 		queryTimeDesc,
