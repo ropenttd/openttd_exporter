@@ -37,6 +37,14 @@ var (
 		"Company limit.",
 		[]string{}, nil,
 	)
+
+	// Create a counter for the current runtime.
+	gameRunTimeDesc = prometheus.NewDesc(
+		prometheus.BuildFQName("openttd", "game", "runtime"),
+		"How long the current game has been running in in-game days.",
+		[]string{}, nil,
+	)
+
 	queryTimeDesc = prometheus.NewDesc(
 		prometheus.BuildFQName("openttd", "meta", "query_time"),
 		"Duration of the last query.",
@@ -105,6 +113,12 @@ func (cc OpenttdCollector) Collect(ch chan<- prometheus.Metric) {
 		companiesLimitsDesc,
 		prometheus.GaugeValue,
 		float64(result.MaxCompanies),
+	)
+
+	ch <- prometheus.MustNewConstMetric(
+		gameRunTimeDesc,
+		prometheus.CounterValue,
+		float64(result.DateCurrent.Sub(result.DateStart).Hours()/24),
 	)
 
 	ch <- prometheus.MustNewConstMetric(

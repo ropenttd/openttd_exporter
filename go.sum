@@ -62,8 +62,8 @@ github.com/prometheus/procfs v0.0.0-20181005140218-185b4288413d/go.mod h1:c3At6R
 github.com/prometheus/procfs v0.0.2/go.mod h1:TjEm7ze935MbeOT/UhFTIMYKhuLP4wbCsTZCD3I8kEA=
 github.com/prometheus/procfs v0.0.8 h1:+fpWZdT24pJBiqJdAwYBjPSk+5YmQzYNPYzQsdzLkt8=
 github.com/prometheus/procfs v0.0.8/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+GxbHq6oeK9A=
-github.com/ropenttd/gopenttd v0.0.0-20200427200736-6b27b6e105b1 h1:dmqOS/zbwLPp2MDS1P1nbh7hFz5HPKz9m8ilHj0tL+M=
-github.com/ropenttd/gopenttd v0.0.0-20200427200736-6b27b6e105b1/go.mod h1:DPL4+mKMvedF1Fmccu8OrZ8A0VSiMr2Sx+QacJI7Jrg=
+github.com/ropenttd/gopenttd v0.0.0-20200428171725-5ca6d4c34ec5 h1:2SKPgmejUQoVCeklS711EdAJec6Wjn2iMaMcQl3W3Fs=
+github.com/ropenttd/gopenttd v0.0.0-20200428171725-5ca6d4c34ec5/go.mod h1:3+HVRmokD9/AqnzPU4zxSn3WLygfVcJVdIB007NwFng=
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
 github.com/sirupsen/logrus v1.4.2/go.mod h1:tLMulIdttU9McNUspp0xgXVQah82FyeX6MwdIuYE2rE=
 github.com/sirupsen/logrus v1.5.0 h1:1N5EYkVAPEywqZRJd7cwnRtCb6xJx7NH3T3WUTF980Q=
