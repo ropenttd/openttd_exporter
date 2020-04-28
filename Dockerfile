@@ -2,17 +2,19 @@
 
 FROM golang:alpine AS builder
 
-# Install git.
-# Git is required for fetching the dependencies.
-RUN apk update && apk add --no-cache git
+# All these steps will be cached
 WORKDIR $GOPATH/src/github.com/ropenttd/openttd_exporter
+COPY go.mod .
+COPY go.sum .
+
+# Get dependencies - will also be cached if we won't change mod/sum
+RUN go mod download
+
+# Then copy the rest of this source code
 COPY . .
 
-# Fetch dependencies
-RUN go get -d -v
-
-# Build the binary
-RUN go build -o /go/bin/openttd_exporter
+# And build the binary
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o /go/bin/openttd_exporter
 
 # END BUILD ENVIRONMENT
 # DEPLOY ENVIRONMENT
